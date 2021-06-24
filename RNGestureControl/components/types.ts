@@ -9,10 +9,10 @@ export type SwipeDirections =
 
 export type GestureContainerProps = {
   children: ReactElement;
-  onSwipeUp?: (gestureState: PanResponderGestureState) => void;
-  onSwipeDown?: (gestureState: PanResponderGestureState) => void;
-  onSwipeLeft?: (gestureState: PanResponderGestureState) => void;
-  onSwipeRight?: (gestureState: PanResponderGestureState) => void;
+  onSwipeUp?: (gestureState?: PanResponderGestureState) => void;
+  onSwipeDown?: (gestureState?: PanResponderGestureState) => void;
+  onSwipeLeft?: (gestureState?: PanResponderGestureState) => void;
+  onSwipeRight?: (gestureState?: PanResponderGestureState) => void;
   velocityThreshold?: number;
   directionalOffsetThreshold?: number;
 };
