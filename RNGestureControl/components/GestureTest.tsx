@@ -1,29 +1,29 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, PanResponderGestureState} from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import {SwipeDirections, GestureState} from './types';
+import {SwipeDirections} from './types';
 
 export default function GestureTest() {
   const [text, setText] = useState('');
   const [gesture, setGesture] = useState('');
   const [backColor, setBackColor] = useState('white');
 
-  const onSwipeUp = (gestureState: GestureState) => {
+  const onSwipeUp = (gestureState: PanResponderGestureState) => {
     setText('You swiped up!');
     console.log('state : ', gestureState);
   };
 
-  const onSwipeDown = (gestureState: GestureState) => {
+  const onSwipeDown = (gestureState: PanResponderGestureState) => {
     setText('You swiped down!');
     console.log('state : ', gestureState);
   };
 
-  const onSwipeLeft = (gestureState: GestureState) => {
+  const onSwipeLeft = (gestureState: PanResponderGestureState) => {
     setText('You swiped left!');
     console.log('state : ', gestureState);
   };
 
-  const onSwipeRight = (gestureState: GestureState) => {
+  const onSwipeRight = (gestureState: PanResponderGestureState) => {
     setText('You swiped right!');
     console.log('state : ', gestureState);
   };
@@ -35,7 +35,7 @@ export default function GestureTest() {
 
   const onSwipe = (
     gestureName: SwipeDirections,
-    gestureState: GestureState,
+    gestureState: PanResponderGestureState,
   ) => {
     setGesture(gestureName);
 
@@ -58,7 +58,7 @@ export default function GestureTest() {
 
   return (
     <GestureRecognizer
-      onSwipe={(direction: SwipeDirections, state: GestureState) =>
+      onSwipe={(direction: SwipeDirections, state: PanResponderGestureState) =>
         onSwipe(direction, state)
       }
       onSwipeUp={state => onSwipeUp(state)}
