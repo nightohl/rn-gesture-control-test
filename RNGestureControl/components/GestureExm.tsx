@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 import GestureContainer from './GestureContainer';
 
@@ -35,14 +36,25 @@ export default function GestureExm() {
         </View>
         {isLeft && (
           <>
-            <Pressable style={styles.edit} onPress={onEdit}>
-              <Image source={editImg} />
-              <Text style={styles.buttonText}>수정</Text>
-            </Pressable>
-            <Pressable style={styles.delete} onPress={onDelete}>
-              <Image source={deleteImg} />
-              <Text style={styles.buttonText}>삭제</Text>
-            </Pressable>
+            <Animatable.View
+              animation="fadeInLeft"
+              duration={500}
+              style={{zIndex: 1}}>
+              <Pressable style={styles.edit} onPress={onEdit}>
+                <Image source={editImg} />
+                <Text style={styles.buttonText}>수정</Text>
+              </Pressable>
+            </Animatable.View>
+            <Animatable.View
+              animation="fadeInLeft"
+              duration={500}
+              delay={100}
+              style={{zIndex: 0}}>
+              <Pressable style={styles.delete} onPress={onDelete}>
+                <Image source={deleteImg} />
+                <Text style={styles.buttonText}>삭제</Text>
+              </Pressable>
+            </Animatable.View>
           </>
         )}
       </View>
