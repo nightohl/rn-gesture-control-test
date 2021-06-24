@@ -1,12 +1,16 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View, Text} from 'react-native';
 
-import GestureTest from './components/GestureTest';
+import GestureContainer from './components/GestureContainer';
 
 export default function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <GestureTest />
+      <GestureContainer>
+        <View>
+          <Text>test</Text>
+        </View>
+      </GestureContainer>
     </SafeAreaView>
   );
 }
